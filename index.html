@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GatePass Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      @media print {
+        @page {
+          margin: 0;
+          size: landscape;
+        }
+        html, body, #root {
+          height: auto !important;
+          min-height: 0 !important;
+          overflow: visible !important;
+          background-color: white !important;
+        }
+        .no-print {
+          display: none !important;
+        }
+        .print-only {
+          display: block !important;
+        }
+        /* Hide everything by default to prevent layout issues */
+        body > * {
+          display: none !important;
+        }
+        /* Only display the root (which contains the app) */
+        body > #root {
+          display: block !important;
+        }
+        /* Inside root, hide everything except the main content and the template */
+        #root > * {
+          display: none !important;
+        }
+        #root > div {
+           display: block !important;
+        }
+        /* Reset margins/paddings on the main wrapper */
+        main {
+          margin: 0 !important;
+          padding: 0 !important;
+          max-width: none !important;
+          width: 100% !important;
+          display: block !important;
+        }
+        /* Ensure the gate pass container takes full width/height without shadows */
+        #gate-pass-content {
+          display: block !important;
+          box-shadow: none !important;
+          border: none !important;
+          margin: 5mm auto !important; /* Add explicit margin for print */
+          width: 95% !important; /* Prevent edge touching */
+          max-width: 285mm !important; /* Safe width for A4 Landscape */
+          padding: 0 !important;
+        }
+        /* Hide nav and other ui elements that might still be in the DOM */
+        nav, button, .no-print-container {
+          display: none !important;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-slate-50 text-slate-900 h-screen overflow-x-hidden">
+    <div id="root"></div>
+  </body>
+</html>

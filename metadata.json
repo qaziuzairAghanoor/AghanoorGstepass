@@ -1,0 +1,5 @@
+{
+  "name": "GatePass Project",
+  "description": "A professional digital gate pass management system with auto-incrementing serialization, printable templates, and history tracking.",
+  "requestFramePermissions": []
+}
